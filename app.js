@@ -2,6 +2,9 @@ import express from 'express'
 import { getNames, getName, createName , deleteName , updateName} from './database.js'
 const app = express()
 app.use(express.json())
+app.get("/", (req, res) => {
+  res.send('Hello World !!!')
+})
 app.get("/employees", async (req, res) => {
   const name = await getNames()
   res.send(name)
