@@ -3,7 +3,7 @@ import { getNames, getName, createName , deleteName , updateName} from './databa
 const app = express()
 app.use(express.json())
 app.get("/", (req, res) => {
-  res.send('Hello World !!! push working')
+  res.send('Hello World !!! push')
 })
 app.get("/employees", async (req, res) => {
   const name = await getNames()
