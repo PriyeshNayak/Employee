@@ -1,9 +1,7 @@
-FROM node:18 AS builder
-WORKDIR /app
+FROM node:14
+WORKDIR  /app
 COPY package*.json ./
 RUN npm install
 COPY . .
-
-FROM alpine AS production
-WORKDIR /app
-CMD [ "npm", "run", "docker:dev" ]
+EXPOSE 3000
+CMD ["npm", "run","docker:run"]
