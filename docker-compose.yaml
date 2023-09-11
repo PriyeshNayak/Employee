@@ -9,6 +9,8 @@ services:
       - 3000:3000
     depends_on:
       - db
+    networks:
+      - mynetwork
   db:
     container_name: db
     image: mysql:8.0.33
@@ -20,5 +22,9 @@ services:
       - MYSQL_DATABASE=crud
     volumes:
       - mysql_data:/var/lib/mysql
+    networks:
+      - mynetwork
 volumes:
   mysql_data:
+networks:
+  mynetwork:
