@@ -10,6 +10,7 @@ services:
     depends_on:
       - db
   db:
+    container_name: db
     image: mysql:8.0.33
     restart: always
     ports:
