@@ -1,18 +1,18 @@
 {
-  "name": "app", 
+  "name": "app",
   "version": "1.0.0",
   "description": "",
   "type": "module",
   "main": "database.js",
   "scripts": {
-    "dev": "npx nodemon app.js",
-    "docker:dev": "node app.js",
-    "docker:run": "node app.js"
+    "demon:dev": "npx nodemon app.js",
+    "dev": "node app.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "caprover": "^2.3.0",
     "dotenv": "^16.0.1",
     "express": "^5.0.0-beta.1",
     "mysql2": "^2.3.3"

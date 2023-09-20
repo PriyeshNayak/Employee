@@ -1,41 +1,41 @@
 version: '2.19.1'
 services:
-  app1:
+  app:
     build:
       context: .
-      dockerfile: app1.Dockerfile
+      dockerfile: Dockerfile
     restart: always
     ports:
       - 3000:3000
-    # depends_on:
-    #   - db
+    depends_on:
+      - db
     networks:
       - mynetwork
 
-  app2:
-    build:
-      context: .
-      dockerfile: app2.Dockerfile
+  # app2:
+  #   build:
+  #     context: .
+  #     dockerfile: app2.Dockerfile
+  #   restart: always
+  #   ports:
+  #     - 4000:3000
+  #   networks:
+  #     - mynetwork
+
+  db:
+    container_name: db
+    image: mysql:8.0.33
     restart: always
     ports:
-      - 4000:3000
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=crud
+    volumes:
+      - mysql_data:/var/lib/mysql
     networks:
       - mynetwork
-
-#   db:
-#     container_name: db
-#     image: mysql:8.0.33
-#     restart: always
-#     ports:
-#       - "3306:3306"
-#     environment:
-#       - MYSQL_ROOT_PASSWORD=password
-#       - MYSQL_DATABASE=crud
-#     volumes:
-#       - mysql_data:/var/lib/mysql
-#     networks:
-#       - mynetwork
-# volumes:
-#   mysql_data:
+volumes:
+  mysql_data:
 networks:
   mynetwork:
